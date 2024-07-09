@@ -1,0 +1,7 @@
+{
+  "name": "eam",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
