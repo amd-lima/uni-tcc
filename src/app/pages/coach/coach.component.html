@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<ion-content>
+  <h1>To add a new class fill this form</h1>
+  <form [formGroup]="videoForm" (ngSubmit)="onSubmit()" novalidate>
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input formControlName="title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Youtube Video url</ion-label>
+      <ion-input formControlName="classVideo"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="addExerciseField()">Add Exercise</ion-button>
+
+    <div formArrayName="exercises">
+      <div *ngFor="let exercise of exercises.controls; let i = index" [formGroupName]="i" class="exercise-item">
+        <ion-item>
+          <ion-label position="floating">Exercise {{i + 1}}</ion-label>
+          <ion-input formControlName="exercise"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Answer</ion-label>
+          <ion-input formControlName="answer"></ion-input>
+        </ion-item>
+      </div>
+    </div>
+
+    <ion-button expand="full" type="submit" [disabled]="!videoForm.valid">Submit</ion-button>
+  </form>
+</ion-content>

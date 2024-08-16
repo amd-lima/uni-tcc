@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <a [routerLink]="['/']"><ion-title slot="start"> Online class </ion-title></a>
+    <div class="darkmode" slot="end">
+      <ion-icon *ngIf="paletteToggle" name="sunny-outline"></ion-icon>
+      <ion-icon *ngIf="!paletteToggle" name="sunny"></ion-icon>
+      <ion-toggle
+        [(ngModel)]="paletteToggle"
+        (ionChange)="toggleChange($event)"
+        color="medium"
+        justify="space-between"
+      >
+      </ion-toggle>
+    </div>
+  </ion-toolbar>
+</ion-header>

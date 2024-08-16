@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="container">
+  <div *ngFor="let video of videos">
+    <h3>{{ video.title }}</h3>
+    <div class="video-container">
+      <iframe
+        [src]="getVideoUrl(video.classVideo)"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="content-below-video">
+      <div *ngIf="video.exercises" class="exercise-container">
+        <div *ngFor="let exercise of video.exercises">
+          <p>{{ exercise.exercise }}</p>
+          <button (click)="exercise.showAnswer = !exercise.showAnswer">
+            {{ exercise.showAnswer ? 'Ocultar Resposta' : 'Revelar Resposta' }}
+          </button>
+          <p *ngIf="exercise.showAnswer">{{ exercise.answer }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

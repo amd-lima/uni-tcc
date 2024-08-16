@@ -1,0 +1,16 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Welcome</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-input
+      label="Email:"
+      label-placement="floating"
+      fill="outline"
+      type="email"
+      placeholder="email@email.com"
+    ></ion-input>
+      <a [routerLink]="['/coach']"><ion-button>Tutor</ion-button></a>
+      <a [routerLink]="['/student']"><ion-button>Student</ion-button></a>
+  </ion-card-content>
+</ion-card>
