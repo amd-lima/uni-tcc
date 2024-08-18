@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DataService } from 'src/app/services/data.service';
+import { DataService } from 'src/app/core/services/data.service';
+
 
 @Component({
   selector: 'app-coach',
@@ -12,7 +13,7 @@ export class CoachComponent {
 
   constructor(private fb: FormBuilder, private dataService: DataService) {
     this.videoForm = this.fb.group({
-      classVideo: ['', Validators.required],
+      linkVideo: ['', Validators.required],
       title: ['', Validators.required],
       exercises: this.fb.array([]) // Usando FormArray para exercícios dinâmicos
     });
@@ -32,7 +33,7 @@ export class CoachComponent {
   onSubmit() {
     if (this.videoForm.valid) {
       const formData = this.videoForm.value;
-      this.dataService.saveData('videoForm.json', formData); 
+      this.dataService.saveData('videoForm.json', formData);
       console.log('Form saved:', formData);
     } else {
       console.log('Form is invalid');

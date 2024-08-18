@@ -14,15 +14,19 @@
       <div *ngIf="video.exercises" class="exercise-container">
         <div *ngFor="let exercise of video.exercises">
           <p>{{ exercise.exercise }}</p>
+
+          <!-- Campo de input para respostas -->
+          <input [(ngModel)]="exercise.userAnswer" placeholder="Digite sua resposta aqui" />
+
+          <!-- Botão para revelar resposta -->
           <button (click)="exercise.showAnswer = !exercise.showAnswer">
             {{ exercise.showAnswer ? 'Ocultar Resposta' : 'Revelar Resposta' }}
           </button>
+
+          <!-- Exibição da resposta -->
           <p *ngIf="exercise.showAnswer">{{ exercise.answer }}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-

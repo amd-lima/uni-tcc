@@ -9,8 +9,11 @@
       fill="outline"
       type="email"
       placeholder="email@email.com"
+      [(ngModel)]="email"
+      required
+      #emailInput="ngModel"
     ></ion-input>
-      <a [routerLink]="['/coach']"><ion-button>Tutor</ion-button></a>
-      <a [routerLink]="['/student']"><ion-button>Student</ion-button></a>
+    <ion-button (click)="checkEmail()">Check email</ion-button>
+    <p *ngIf="showInvalidEmailMsg">Invalid email or not registered</p>
   </ion-card-content>
 </ion-card>
